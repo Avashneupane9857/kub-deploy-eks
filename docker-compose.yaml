@@ -1,0 +1,23 @@
+version: "3"
+services:
+  auth:
+    build: ./auth-api
+    ports:
+      - '8000:3000'
+    environment:
+      TOKEN_KEY: 'shouldbeverysecure'
+  users:
+    build: ./users-api
+    ports:
+      - '8080:3000'
+    environment:
+      MONGODB_CONNECTION_URI: 'mongodb+srv://juisch20220011252:Saibaba9857@cluster0.agjrkuu.mongodb.net/users?retryWrites=true&w=majority&appName=Cluster0'
+      AUTH_API_ADDRESSS: 'auth:3000'
+
+
+
+# mongodb+srv://juisch20220011252:<db_password>@cluster0.agjrkuu.mongodb.net/
+
+
+
+      # mongodb+srv://juisch20220011252:<db_password>@cluster0.agjrkuu.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
